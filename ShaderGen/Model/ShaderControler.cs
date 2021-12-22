@@ -36,7 +36,7 @@ public class ShaderControler
 
     private static void DrawTriangle(Vertex v1, Vertex v2, Vertex v3)
     {
-        //调用顶点着色shader
+        // 调用顶点着色shader
         __CreateVSInputStruct1__
         __VSOutputType__ p1 = Shader.__VertexShaderName__(vi1);
         __CreateVSInputStruct2__
@@ -44,15 +44,16 @@ public class ShaderControler
         __CreateVSInputStruct3__
         __VSOutputType__ p3 = Shader.__VertexShaderName__(vi3);
 
-        //转换到屏幕坐标
+        // 齐次除法
+        p1 = PerspectiveDivision(p1);
+        p2 = PerspectiveDivision(p2);
+        p3 = PerspectiveDivision(p3);
+
+        // 转换到屏幕坐标
         p1 = ToScreen(p1);
         p2 = ToScreen(p2);
         p3 = ToScreen(p3);
 
-        //消除畸变
-        p1 = MulOnePerZ(p1);
-        p2 = MulOnePerZ(p2);
-        p3 = MulOnePerZ(p3);
 
         if (RenderType == RenderType.Wireframe)
         {
@@ -62,7 +63,7 @@ public class ShaderControler
         } 
         else if (RenderType == RenderType.GouraudShading || RenderType == RenderType.Normal)
         {
-            //排序，并调用填充函数
+            // 排序，并调用填充函数
             Sort(ref p1, ref p2, ref p3);
             if (p2.Position.Y == p3.Position.Y)
                 FillFlatTriangle(p1, p2, p3, false);
@@ -140,8 +141,10 @@ public class ShaderControler
         for (float i = Mathf.Range(x0, 0, Canvas.Width); i <= x1; i++)
         {
             float t = (i - x0) / dx;
-            __VSOutputType__ v = Lerp(v1, v2, t);
+            // 消除畸变
+            __VSOutputType__ v = Lerp(MulOnePerZ(v1), MulOnePerZ(v2), t);
             v = MulOnePerZ(v);
+
             if (RenderType == RenderType.Normal)
             {
                 Canvas.SetPixel((int) i, (int) (v1.Position.Y + 0.5),
@@ -185,6 +188,14 @@ public class ShaderControler
     {
         v.Position.W = 1 / v.Position.W;
         __MulOnePerZCode__
+        return v;
+    }
+
+    private static __VSOutputType__ PerspectiveDivision(__VSOutputType__ v) {
+        float temp = 1 / v.Position.W;
+        v.Position.X *= temp;
+        v.Position.Y *= temp;
+        v.Position.Z *= temp;
         return v;
     }
 
