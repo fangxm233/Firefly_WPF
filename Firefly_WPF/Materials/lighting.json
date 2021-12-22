@@ -1,0 +1,8 @@
+{
+    "Name": "lighting",
+    "Shader": "LightingShader",
+    
+    "Gloss": 1,
+    "Diffuse": 0.1,
+    "Spscular": {"X": 1, "Y": 1, "Z": 1, "W": 1}
+}

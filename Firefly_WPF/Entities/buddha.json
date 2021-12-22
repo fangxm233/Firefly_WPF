@@ -1,0 +1,7 @@
+{
+    "Name": "buddha",
+    "Mesh": "buddha",
+    "Material": "lighting",
+    "Position": {"X": 0, "Y": -10, "Z": -15},
+    "Rotation": {"X": 90, "Y": 0, "Z": 0}
+}

@@ -1,0 +1,9 @@
+{
+    "Name": "standard",
+    "Shader": "StandardShader",
+    
+    "Gloss": 10,
+    "Diffuse": 0.2,
+    "Spscular": {"X": 1, "Y": 1, "Z": 1, "W": 1},
+    "Tex": "pink.jpg"
+}

@@ -1,0 +1,7 @@
+﻿{
+    "Name": "bunny",
+    "Mesh": "bunny2",
+    "Material": "bunny",
+    "Position": {"X": 0, "Y": 0, "Z": -0.5},
+    "Rotation": {"X": 45, "Y": 0, "Z": -0}
+}

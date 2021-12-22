@@ -1,0 +1,9 @@
+﻿{
+  "Name": "bunny",
+  "Shader": "StandardShader",
+
+  "Gloss": 100,
+  "Diffuse": 1,
+  "Spscular": {"X": 1, "Y": 1, "Z": 1, "W": 1},
+  "Tex": "bunny2.jpg"
+}

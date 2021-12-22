@@ -1,0 +1,13 @@
+﻿<Window x:Class="Firefly_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Firefly_WPF"
+        mc:Ignorable="d"
+        Title="FireFly" Height="532" Width="854" Closed="Window_Closed" KeyDown="Window_KeyDown" KeyUp="Window_KeyUp" MouseDown="Window_MouseDown" MouseUp="Window_MouseUp" MouseMove="Window_MouseMove">
+    <Grid>
+        <Image x:Name="Img" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,7 @@
+{
+    "Name": "plane",
+    "Mesh": "plane",
+    "Material": "standard",
+    "Position": {"X": 0, "Y": -3, "Z": -6},
+    "Rotation": {"X": 0, "Y": 0, "Z": 0}
+}
